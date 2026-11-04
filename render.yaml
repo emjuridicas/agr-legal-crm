@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: agr-legal-crm
+    runtime: docker
+    plan: starter
+    autoDeploy: true
+    disk:
+      name: agr-crm-data
+      mountPath: /data
+      sizeGB: 5
+    envVars:
+      - key: DB_PATH
+        value: /data/crm_legal_agr.sqlite
+      - key: FILES_STORAGE_DIR
+        value: /data/storage_expedientes
